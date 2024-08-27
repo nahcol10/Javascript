@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>weather</title>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter the city" spellcheck="none">
+            <img src="images/search.png">
+        </div>
+        <div class="details-cont">
+            <div class="weather">
+                <div class="weather-img">
+                    <img src="images/clear.png" alt="Loading...">
+                </div>
+                <div class="weather-temp">22°C</div>
+                <div class="weather-city">Mumbai</div>
+            </div>
+            <div class="weather-additonal">
+                <div class="humidity">
+                        <img src="images/humidity.png" alt="Loading...">
+                        <div class="humidity-details">
+                            <h3>53%</h3>
+                            <h3>Humidity</h2>
+                        </div>
+                </div>
+                <div class="wind-speed">
+                        <img src="images/wind.png" alt="Loading... ">
+                        <div class="wind-speed-details">
+                            <h3>6.66 km/h</h3>
+                        <h3>Wind Speed</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        let searchBox = document.querySelector('.search input');
+        let searchBtn = document.querySelector('.search img');
+
+        const apiKey = '1960022decfc162e6aa4a5c05b2d0057';
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city +`&appid=${apiKey}&units=metric`);
+            var data = await response.json();
+            let weatherIcon = data.weather[0].main.toLowerCase();
+            document.querySelector('.weather-img img').src = `./images/${weatherIcon}.png`;
+            document.querySelector('.weather-temp').innerHTML = Math.round(data.main.temp) + '°C';
+            document.querySelector('.weather-city').innerHTML = data.name;
+            document.querySelector('.humidity-details h3').innerHTML = data.main.humidity + "%";
+            document.querySelector('.wind-speed-details h3').innerHTML = data.wind.speed + " km/h";
+        }
+        
+        searchBtn.addEventListener('click',() => {
+            checkWeather(searchBox.value);
+        });
+    </script>
+</body>
+</html>
