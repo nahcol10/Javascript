@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(82, 82, 151);
+}
+
+.cont{
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.cont h2{
+    font-size: 26pt;
+    font-weight: 600;
+}
+
+.cont h2 span {
+    color: #27ae60;
+    text-decoration: underline 3px solid;
+    text-underline-offset: 10px; /* Adjust this value to increase or decrease the gap */
+}
+.password-cont{
+    background: #fff;
+    color: #000;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.password-cont input{
+    border: none;
+    outline: none;
+    width: 80%;
+    padding: 20px;
+    background: transparent;
+    font-size: 16pt;
+    font-weight: 400;
+    cursor: not-allowed;
+}
+.password-cont img{
+    width: 30px;
+    position: relative;
+    left: -20px;
+    cursor: pointer;
+}
+.generate-btn{
+    width: 43%;
+    padding: 10px;
+    margin-top: 30px;
+    background-color:#27ae60;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.generate-btn img{
+    width: 20px;
+    background: transparent;
+}
+.generate-btn button{
+    border: none;
+    outline: none;
+    background: transparent;
+    background: transparent;
+    font-size: 15pt;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+.info{
+    height: 20px;
+    margin: 8px;
+    text-align: right;
+    color: #27ae60;
+    font-weight: 600;
+}
