@@ -43,8 +43,8 @@
         let searchBox = document.querySelector('.search input');
         let searchBtn = document.querySelector('.search img');
 
-        const apiKey = '1960022decfc162e6aa4a5c05b2d0057';
-        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+        const apiKey = `${API_KEY}`;
+        const apiUrl = `${API_URL}`;
 
         async function checkWeather(city) {
             const response = await fetch(apiUrl + city +`&appid=${apiKey}&units=metric`);
